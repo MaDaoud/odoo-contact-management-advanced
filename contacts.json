@@ -1,0 +1,34 @@
+[
+    {
+        "name": "MOHAMED ALI DAOUED",
+        "email": "daoudmohamedali2@gmail.com",
+        "phone": "29688251",
+        "category": "ble",
+        "related_contacts": []
+    },
+    {
+        "name": "Semir Mais",
+        "email": "ezzcczedali2@gmail.com",
+        "phone": "29688251",
+        "category": "mais",
+        "related_contacts": [
+            "MOHAMED ALI DAOUED"
+        ]
+    },
+    {
+        "name": "Ali",
+        "email": "ali@example.com",
+        "phone": "12345678",
+        "category": "Amis",
+        "related_contacts": []
+    },
+    {
+        "name": "kamel HZ",
+        "email": "kamelkaùmeil@gmail com",
+        "phone": "26257262526",
+        "category": "ble",
+        "related_contacts": [
+            "Semir Mais"
+        ]
+    }
+]

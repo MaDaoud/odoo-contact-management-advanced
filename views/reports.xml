@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_report_contacts" model="ir.actions.report">
+            <field name="name">rapport PDF</field>
+            <field name="model">mon_module.contact</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">feralyxALPHA.report_contact_template</field>
+            <field name="report_file">feralyxALPHA.report_contact_template</field>
+            <field name="binding_model_id" ref="model_mon_module_contact"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <template id="report_contact_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1 class="text-center">Liste des Contacts</h1>
+
+                        <t t-foreach="docs" t-as="o">
+                            <h2 style="border-bottom: 2px solid #ccc; padding-bottom: 5px;">
+                                Contact : <span t-field="o.name"/>
+                            </h2>
+
+                            <table class="table table-sm table-striped">
+                                <tr>
+                                    <td style="width: 25%;">Email:</td>
+                                    <td><span t-field="o.email"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Téléphone:</td>
+                                    <td><span t-field="o.phone"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Catégorie:</td>
+                                    <td><span t-field="o.category_id.name"/></td>
+                                </tr>
+                            </table>
+
+                            <div t-if="o.related_contacts" style="margin-bottom: 15px;">
+                                <strong>Contacts Liés :</strong>
+                                <ul>
+                                    <li t-foreach="o.related_contacts" t-as="related">
+                                        <span t-field="related.name"/> (<span t-field="related.email"/>)
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div style="margin-top: 30px; margin-bottom: 30px; border-bottom: 1px dashed #eee;"/>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>
